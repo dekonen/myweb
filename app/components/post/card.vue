@@ -1,3 +1,1 @@
-<template>
-  Konen has no posts yet.
-</template>
+<template>Konen has no posts yet.</template>

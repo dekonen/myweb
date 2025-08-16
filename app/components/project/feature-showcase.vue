@@ -54,16 +54,13 @@ const height = computed(() => {
   <div class="flex justify-between flex-col md:flex-row gap-4">
     <div class="md:flex-1">
       <!-- make placeholder for video when loaded occur to prevent scroll bar scrolling to up -->
-       <div
-       v-if="imageSrcs !== undefined"
-       
-       >
-         <ProjectImageShowcase
-           v-model:active="imageActive"
-           class="absolute visible"
-           :srcs="imageSrcs"
-         />
-       </div>
+      <div v-if="imageSrcs !== undefined">
+        <ProjectImageShowcase
+          v-model:active="imageActive"
+          class="absolute visible"
+          :srcs="imageSrcs"
+        />
+      </div>
       <div v-else :style="{ height: height }" class="invisible relative">
         <ProjectVideoShowcase
           class="absolute visible"

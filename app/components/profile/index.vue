@@ -31,17 +31,26 @@ defineProps<{ avatarSrc: string; avatarAlt: string }>();
             <template #description> Let's connect! </template>
             <template #body>
               <div class="flex gap-2 flex-col">
-                <a href="https://github.com/dekonen" class="w-full" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/dekonen"
+                  class="w-full"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <UButton
                     icon="i-lucide-github"
                     variant="soft"
                     color="neutral"
                     label="Github"
                     class="w-full"
-
                   />
                 </a>
-                <a class="w-full" href="https://wa.me/62895342572499?text=Halo%20saya%20tertarik%20dengan%20karya%20Anda,%20boleh%20kita%20ngobrol?" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="w-full"
+                  href="https://wa.me/62895342572499?text=Halo%20saya%20tertarik%20dengan%20karya%20Anda,%20boleh%20kita%20ngobrol?"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <UButton
                     icon="i-lucide-phone"
                     variant="soft"
@@ -57,10 +66,8 @@ defineProps<{ avatarSrc: string; avatarAlt: string }>();
                     color="neutral"
                     label="E-mail"
                     class="w-full"
-
                   />
                 </a>
-                
               </div>
             </template>
           </UModal>
@@ -75,7 +82,9 @@ defineProps<{ avatarSrc: string; avatarAlt: string }>();
         <strong>i am seeking for fulltime software developer job</strong>.
       </p>
       <div class="flex gap-2 mt-4">
-        <a href="https://wa.me/62895342572499?text=Halo%20saya%20tertarik%20dengan%20karya%20Anda,%20boleh%20kita%20proyek%20bareng?">
+        <a
+          href="https://wa.me/62895342572499?text=Halo%20saya%20tertarik%20dengan%20karya%20Anda,%20boleh%20kita%20proyek%20bareng?"
+        >
           <UButton class="cursor-pointer" color="primary">Hire me</UButton>
         </a>
         <UButton class="cursor-pointer" variant="outline">About me</UButton>

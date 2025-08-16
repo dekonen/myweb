@@ -23,16 +23,10 @@ const imageSrcs = computed(() => {
 });
 
 const tab = ref("0");
-const isLoaded = ref(true);
+const isLoading = ref(false);
 const placeholderVideoHeight = ref(0);
 const isTabVisible = ref(true);
 const imageActive = ref(0);
-
-function handleVideoLoad() {
-  setTimeout(() => {
-    isLoaded.value = true;
-  });
-}
 
 function handleLoadedMetadata(height: number) {
   placeholderVideoHeight.value = height;
@@ -44,8 +38,13 @@ function handleTabChange(value: string | number) {
   }
   imageActive.value = 0;
   tab.value = value.toString();
-  isLoaded.value = false;
+  isLoading.value = true;
 }
+
+function handleLoadedData() {
+  isLoading.value = false;
+}
+
 const height = computed(() => {
   return placeholderVideoHeight.value + "px";
 });
@@ -54,19 +53,18 @@ const height = computed(() => {
   <div class="flex justify-between flex-col md:flex-row gap-4">
     <div class="md:flex-1">
       <!-- make placeholder for video when loaded occur to prevent scroll bar scrolling to up -->
-      <div v-if="imageSrcs !== undefined">
         <ProjectImageShowcase
+          v-if="imageSrcs !== undefined"
           v-model:active="imageActive"
           class="absolute visible"
           :srcs="imageSrcs"
         />
-      </div>
-      <div v-else :style="{ height: height }" class="invisible relative">
+      <div v-else :style="{ height: height }" class="relative bg-gray-400/50">
         <ProjectVideoShowcase
           class="absolute visible"
           :src="videoSrc"
-          @load="handleVideoLoad"
           @loadedmetadata="handleLoadedMetadata"
+          @loadeddata="handleLoadedData"
         />
       </div>
     </div>

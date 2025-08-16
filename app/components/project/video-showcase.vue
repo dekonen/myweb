@@ -7,8 +7,8 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: "loadedmetadata", height: number): void;
-  (e: "ended"): void;
   (e: "load"): void;
+  (e: "loadeddata"): void;
 }>();
 
 const videoRef = ref<HTMLVideoElement | null>(null);
@@ -46,8 +46,10 @@ watch(
       muted
       loop
       playsinline
+      preload="auto"
       :controls="false"
       @loadedmetadata="handleLoadedMetadata"
+      @canplay="$emit('loadeddata')"
     >
       <source :src="props.src" type="video/mp4" />
       Your browser does not support the video tag.

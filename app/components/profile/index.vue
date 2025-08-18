@@ -7,7 +7,7 @@ defineEmits(["about-me"]);
   <div class="flex gap-4">
     <div>
       <UAvatar
-        :src="''"
+        :src="avatarSrc"
         :alt="avatarAlt"
         :style="{ width: '80px', height: '80px' }"
       />

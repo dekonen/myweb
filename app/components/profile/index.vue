@@ -1,33 +1,38 @@
 <script setup lang="ts">
 defineProps<{ avatarSrc: string; avatarAlt: string }>();
+defineEmits(["about-me"]);
 </script>
 
 <template>
   <div class="flex gap-4">
     <div>
       <UAvatar
-        :src="avatarSrc"
+        :src="''"
         :alt="avatarAlt"
         :style="{ width: '80px', height: '80px' }"
       />
       <div class="mt-4 flex justify-center gap-2">
-        <a href="https://github.com/dekonen">
-          <UButton
-            class="rounded-full"
-            variant="soft"
-            color="neutral"
-            icon="i-lucide-github"
-          />
-        </a>
-
-        <div>
-          <UModal title="My Links">
+        <UTooltip text="Github">
+          <a href="https://github.com/dekonen">
             <UButton
               class="rounded-full"
               variant="soft"
               color="neutral"
-              icon="i-lucide-ellipsis"
+              icon="i-lucide-github"
             />
+          </a>
+        </UTooltip>
+
+        <div>
+          <UModal title="My Links">
+            <UTooltip text="More Links">
+              <UButton
+                class="rounded-full"
+                variant="soft"
+                color="neutral"
+                icon="i-lucide-ellipsis"
+              />
+            </UTooltip>
             <template #description> Let's connect! </template>
             <template #body>
               <div class="flex gap-2 flex-col">
@@ -87,7 +92,12 @@ defineProps<{ avatarSrc: string; avatarAlt: string }>();
         >
           <UButton class="cursor-pointer" color="primary">Hire me</UButton>
         </a>
-        <UButton class="cursor-pointer" variant="outline">About me</UButton>
+        <UButton
+          class="cursor-pointer"
+          variant="outline"
+          @click="$emit('about-me')"
+          >About me</UButton
+        >
       </div>
     </div>
   </div>

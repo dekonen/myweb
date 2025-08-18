@@ -1,46 +1,5 @@
 <script setup lang="ts">
-import type { TabsItem } from "@nuxt/ui";
-
-const route = useRoute();
-const router = useRouter();
-
-const tabsItem: TabsItem[] = [
-  {
-    label: "Posts",
-    slot: "posts" as const,
-    value: "posts",
-  },
-  {
-    label: "Projects",
-    slot: "projects" as const,
-    value: "projects",
-  },
-  {
-    label: "About",
-    slot: "about" as const,
-    value: "about",
-  },
-  {
-    label: "Contact",
-    slot: "contact" as const,
-    value: "contact",
-  },
-];
-
-const active = ref("posts");
-function setActive(_value: string | number) {
-  const value = _value.toString();
-  active.value = value;
-  router.push({
-    path: "/",
-    query: { tab: value },
-  });
-}
-onMounted(() => {
-  if (route.query.tab) {
-    active.value = route.query.tab as string;
-  }
-});
+const { tabsItem, setActive, active } = useAppTabsContext();
 </script>
 
 <template>
@@ -56,6 +15,17 @@ onMounted(() => {
       </template>
       <template #projects>
         <ProjectListContainer />
+      </template>
+      <template #about>
+        <AboutMe />
+      </template>
+      <template #contact>
+        You can contact me via whatsapp at
+        <a
+          class="text-primary hover:underline"
+          href="https://wa.me/62895342572499"
+          >+62 895-3425-72499</a
+        >
       </template>
     </UTabs>
   </div>

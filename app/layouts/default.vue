@@ -47,6 +47,9 @@ function handleAboutMeClicked() {
   // Handle the event when the "About me" button is clicked
   setActive("about");
 }
+
+const colorMode = useColorMode();
+onMounted(() => (colorMode.preference = "light"));
 </script>
 <template>
   <div class="max-w-[1024px] xl:max-w-[1200px] mx-auto p-4 flex-col gap-4 flex">

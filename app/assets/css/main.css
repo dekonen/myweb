@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@plugin "@tailwindcss/typography";
 
 button:not(:disabled) {
   cursor: pointer;
+}
+
+.prose pre {
+  margin-top: 0 !important;
+}
+
+.prose code {
+  margin-top: 0 !important;
+}
+
+.prose pre ~ ol {
+  margin-bottom: 0 !important;
 }

@@ -4,6 +4,9 @@ const { tabsItem, setActive, active } = useAppTabsContext();
 
 <template>
   <div>
+    <!-- for seo only, UTabs is client only -->
+    <AboutMe v-show="false" />
+
     <UTabs
       :items="tabsItem"
       :variant="'link'"
@@ -11,7 +14,7 @@ const { tabsItem, setActive, active } = useAppTabsContext();
       @update:model-value="(v) => setActive(v)"
     >
       <template #posts>
-        <PostCard />
+        <PostListContainer />
       </template>
       <template #projects>
         <ProjectListContainer />

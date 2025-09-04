@@ -25,7 +25,7 @@ defineProps<{
         <p class="text-gray-600 line-clamp-2">
           {{ description }}
         </p>
-        <RouterLink :to="url" class="text-blue-500 hover:underline"
+        <RouterLink :to="url" class="text-blue-600 hover:underline"
           >Read more</RouterLink
         >
       </div>
